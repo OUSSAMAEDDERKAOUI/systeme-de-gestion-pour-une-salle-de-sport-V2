@@ -33,7 +33,7 @@
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Services</li></a>
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Contact</li></a>
                 </ul>
-                <a href="#"><button type="submit" class="border border-white rounded-md py-1 px-5 text-lg font-medium transition-all duration-500 hover:bg-orange-500 hover:text-black hover:scale-105 hover:border-none">Sign Up</button></a>
+                <a href="./signup.php"><button type="submit" class="border border-white rounded-md py-1 px-5 text-lg font-medium transition-all duration-500 hover:bg-orange-500 hover:text-black hover:scale-105 hover:border-none">Sign Up</button></a>
             </div>
         </nav>
     </header>
