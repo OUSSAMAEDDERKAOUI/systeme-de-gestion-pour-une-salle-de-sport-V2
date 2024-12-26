@@ -1,11 +1,3 @@
-
-
-<?php 
-include './actions/admin.php' ;
-$admin1 = new Admin('ahmed','ahmed','ahmed','ahmed','ahmed','ahmed');
-  $mbrs = $admin1->allMembers();
-// if ($admin1->allMembers()ou $mbrs){}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
