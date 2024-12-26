@@ -20,7 +20,7 @@ class User{
         $this->email = $new_email;
         $this->password = password_hash($new_password, PASSWORD_DEFAULT);
         $this->role = $role;
-        $this->database= new database(); 
+        $this->database= new Database(); 
     }
 
     ////----------> getters :
@@ -75,6 +75,13 @@ class User{
         $this->password=password_hash($new_password,PASSWORD_DEFAULT);
     }
 
+    public function reservationCancel($id){
+        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        $stmt->execute();
+        $reservationCancel= $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $reservationCancel ;
+     }
 }
  
 
