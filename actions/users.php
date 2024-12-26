@@ -54,7 +54,7 @@ class User{
 
     }
 
-///------> setters
+    ///------> setters
 
     function set_nom(string $new_nom):void{
         $this->nom=$new_nom;
@@ -75,13 +75,53 @@ class User{
         $this->password=password_hash($new_password,PASSWORD_DEFAULT);
     }
 
-    public function reservationCancel($id){
-        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
-        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+
+    // LOGIN FUNCTION
+    public function login($email, $password) {
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
-        $reservationCancel= $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $reservationCancel ;
-     }
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
+    // READ USER INFOS
+    public function showInfos($id) {
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM users WHERE id_user = :id");
+    
+        $stmt->bindValue(":id", (int)$id, PDO::PARAM_INT); 
+    
+        $stmt->execute();
+    
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); 
+    
+        if ($result) {
+            return $result;
+        } else {
+            return null; 
+        }
+    }
+
+    // READ ACTIVITIES FUNCTION
+    public function showActivities() {
+        $stmt = $this->database->getConnection()->prepare("SELECT * FROM activites");
+    
+        $stmt->execute();
+    
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    
+        if ($result) {
+            return $result;
+        } else {
+            return null; 
+        }
+    }
+
 }
  
 
