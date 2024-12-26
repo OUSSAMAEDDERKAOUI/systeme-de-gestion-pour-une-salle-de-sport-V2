@@ -28,7 +28,7 @@
             <div class="flex gap-20 items-center">
                 <ul class="flex gap-10  items-center">
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Home</li></a>
-                    <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">About</li></a>
+                    <a href="#about"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">About</li></a>
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Blog</li></a>
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Services</li></a>
                     <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Contact</li></a>
@@ -69,26 +69,31 @@
         </section>
 
 
-        <section>
+        <section id="about" class="bg-black text-white">
             <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
                     <div>
                         <div class="max-w-lg md:max-w-none">
-                            <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <h2 class="text-2xl font-semibold sm:text-3xl">
+                                About <span class="text-orange-500">OXY</span>FIT
                             </h2>
 
-                            <p class="mt-4 text-gray-700">
+                            <p class="mt-4 font-light text-gray-300">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur doloremque saepe
+                                architecto maiores repudiandae amet perferendis repellendus, reprehenderit voluptas
+                                sequi.
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur doloremque saepe
                                 architecto maiores repudiandae amet perferendis repellendus, reprehenderit voluptas
                                 sequi.
                             </p>
+
+                            <button type="button" class="py-1 px-5 w-1/4 font-medium bg-orange-500 duration-500 hover:bg-orange-600 text-black rounded-sm mt-8">SEE MORE</button>
                         </div>
                     </div>
 
                     <div>
                         <img
-                        src="https://images.unsplash.com/photo-1731690415686-e68f78e2b5bd?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        src="https://images.unsplash.com/photo-1623874514711-0f321325f318?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         class="rounded"
                         alt=""
                         />
@@ -97,6 +102,99 @@
             </div>
         </section>
 
+
+
+        <!-- our services section -->
+        <section class="py-20 bg-black" id="services">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-white text-center">Our <span class="text-orange-500">Services</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://plus.unsplash.com/premium_photo-1661898576032-fd26e3409175?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Professional HEAD Coachs"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">Professional HEAD Coachs</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam non eaque placeat, sequi eum animi quibusdam ullam perferendis. Veritatis, consequatur!
+                            <details>
+                                <summary>Read More</summary>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, quo!</p>
+                            </details>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Body Builsing & Musculation"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">Body Builsing & Musculation</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit aspernatur maiores voluptatem accusantium totam esse sapiente iure nisi provident.
+                            <details>
+                                <summary>Read More</summary>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, quo!</p>
+                            </details>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1540206063137-4a88ca974d1a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Yoga"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">Yoga Sessions</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis cum a nam excepturi esse nobis aut amet cupiditate, laborum sit.
+                            <details>
+                                <summary>Read More</summary>
+                                <p>Our jowar flour is also
+                                    a good source of protein and fiber, making it a healthy choice for your family.</p>
+                            </details>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542766788-a2f588f447ee?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Equipement"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">High Quality Equipements</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolorum ipsam deleniti hic? Quos nobis architecto quidem blanditiis, consequatur maiores.
+                            <details>
+                                <summary>Read More</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, esse?</p>
+                            </details>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1461567797193-e5b489ac026a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pool"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">Swiming Pool</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste velit a sunt necessitatibus repellat sapiente perferendis et ad, maiores fugit!
+                            <details>
+                                <summary>Read More</summary>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, deleniti?</p>
+                            </details>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black text-white shadow-orange-500 rounded-sm shadow-sm overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zumba"
+                            class="w-full h-64 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="text-xl font-medium text-gray-300 mb-2">Zumba Courses</h3>
+                            <p class="font-extralight text-base mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint tempore consequuntur, ab voluptatibus eius illum esse dicta impedit incidunt quam!
+                            <details>
+                                <summary>Read More</summary>
+                                <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum, autem.</p>
+                            </details>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
     </main>
 
