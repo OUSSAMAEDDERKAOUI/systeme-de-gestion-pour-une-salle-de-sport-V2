@@ -27,11 +27,21 @@
             <img class="w-[12%]" src="../assets/img/logo.png" alt="Logo de OXYFIT">
             <div class="flex gap-20 items-center">
                 <ul class="flex gap-10  items-center">
-                    <a href="../index.php"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Home</li></a>
-                    <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">About</li></a>
-                    <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Blog</li></a>
-                    <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Services</li></a>
-                    <a href="#"><li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Contact</li></a>
+                    <a href="../index.php">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Home</li>
+                    </a>
+                    <a href="../index.php#about">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">About</li>
+                    </a>
+                    <a href="../index.php#services">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Services</li>
+                    </a>
+                    <a href="../index.php#contact">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Contact</li>
+                    </a>
+                    <a href="../index.php#location">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Location</li>
+                    </a>
                 </ul>
                 <a href="./signup.php"><button type="submit" class="border border-white rounded-md py-1 px-5 text-lg font-medium transition-all duration-500 hover:bg-orange-500 hover:text-black hover:scale-105 hover:border-none">Sign Up</button></a>
             </div>

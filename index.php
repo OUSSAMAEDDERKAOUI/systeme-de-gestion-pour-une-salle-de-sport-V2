@@ -35,14 +35,14 @@
                     <a href="#about">
                         <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">About</li>
                     </a>
-                    <a href="#">
-                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Blog</li>
-                    </a>
-                    <a href="#">
+                    <a href="#services">
                         <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Services</li>
                     </a>
-                    <a href="#">
+                    <a href="#contact">
                         <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Contact</li>
+                    </a>
+                    <a href="#location">
+                        <li class="text-lg font-medium transition-all duration-500 hover:text-orange-400">Location</li>
                     </a>
                 </ul>
                 <a href="./views/login.php"><button type="submit" class="border border-white rounded-md py-1 px-5 text-lg font-medium transition-all duration-500 hover:bg-orange-500 hover:text-black hover:scale-105 hover:border-none">LOGIN</button></a>
@@ -115,8 +115,8 @@
 
 
 
-        <!-- our services section -->
-        <section class="py-20 bg-black" id="services">
+
+        <section id="services" class="py-20 bg-black" id="services">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold mb-8 text-white text-center">Our <span class="text-orange-500">Services</span></h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -207,7 +207,7 @@
         </section>
 
 
-        <section class="relative bg-black text-white">
+        <section id="contact" class="relative bg-black text-white">
 
             <div class="container mx-auto px-5 py-24">
 
@@ -253,7 +253,7 @@
 
 
 
-        <section class="bg-black text-white">
+        <section id="location" class="bg-black text-white">
             <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-20 lg:px-8">
                 <div class="max-w-2xl lg:max-w-4xl mx-auto text-center">
                     <h2 class="text-3xl font-extrabold" id="contactUs">Visit Our <span class="text-orange-500">Location</span></h2>
