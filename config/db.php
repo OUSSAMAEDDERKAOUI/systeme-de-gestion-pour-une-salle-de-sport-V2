@@ -9,12 +9,12 @@ class Database {
     private $pdo;
 
     
-    public function __construct($host, $db, $user, $pass, $charset = 'utf8mb4') {
-        $this->host = $host;
-        $this->db = $db;
-        $this->user = $user;
-        $this->pass = $pass;
-        $this->charset = $charset;
+    public function __construct() {
+        $this->host ='localhost';
+        $this->db ='gestion_salle_fitness';
+        $this->user = 'root';
+        $this->pass = '';
+        $this->charset ='utf8mb4';
 
         $this->connect();
     }

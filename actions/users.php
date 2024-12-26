@@ -1,4 +1,6 @@
 <?php
+require __DIR__.'/../config/db.php';
+// include __DIR__ .'/admin.php' ;
 
 class User{
     protected int $id;
@@ -8,14 +10,17 @@ class User{
     protected string $email;
     protected string $password;
     protected string $role;
+    protected $database ;
 
-    function __construct($new_nom, $new_prenom, $new_telephone, $new_email, $new_password, $role){
+
+    public function __construct($new_nom, $new_prenom, $new_telephone, $new_email, $new_password, $role){
         $this->nom = $new_nom;
         $this->prenom = $new_prenom;
         $this->telephone = $new_telephone;
         $this->email = $new_email;
         $this->password = password_hash($new_password, PASSWORD_DEFAULT);
         $this->role = $role;
+        $this->database= new database(); 
     }
 
     ////----------> getters :
