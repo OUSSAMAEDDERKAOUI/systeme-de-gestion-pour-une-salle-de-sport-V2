@@ -1,4 +1,3 @@
-
 <?php
 require __DIR__ .'/users.php';
 // require __DIR__ .'/../config/db.php';
@@ -17,9 +16,6 @@ class Admin extends User{
 
         return $members;
     }
-
-
 }
-
 
 ?>
