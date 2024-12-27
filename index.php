@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    if(isset($_SESSION['user_id'])){
+        if($_SESSION['user_role'] === 'admin'){
+            header("Location: ./views/dashboard_admin.php");
+        }else{
+            header("Location: ./views/dashboard_membre.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
