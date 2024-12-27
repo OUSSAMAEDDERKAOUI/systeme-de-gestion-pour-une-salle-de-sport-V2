@@ -124,9 +124,13 @@ class User{
     public function reservationCancel($id){
         $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
         $stmt->bindParam(':id',$id,PDO::PARAM_INT);
-        $stmt->execute();
-        $reservationCancel= $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $reservationCancel ;
+        if ($stmt->execute()) {
+            echo "la suppression a été realisée avec succès.";
+        } else {
+            echo "Erreur lors de la suppression de reservation :  " . implode(", ", $stmt->errorInfo());
+        }    
+            // $reservationCancel= $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // return $reservationCancel ;
      }
 
 }

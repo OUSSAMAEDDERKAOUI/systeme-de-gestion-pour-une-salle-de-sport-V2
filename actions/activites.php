@@ -38,8 +38,53 @@ class Activite {
         $stmt->bindParam(':date_fin',$this-> date_fin,PDO::PARAM_STR); 
         $stmt->bindParam(':disponibilite',$this-> disponibilite , PDO::PARAM_BOOL); 
 
-        $stmt->execute();
+        if ($stmt->execute()) {
+            echo "L'activité a été ajoutée avec succès.";
+        } else {
+            echo "Erreur lors de l'ajout de l'activité: " . implode(", ", $stmt->errorInfo());
+        }
+    }
+    
+    public function modifyActivite($id){
+            $sql = "UPDATE activites 
+                    SET `nom_activite` = :nom_activite,
+                        `description` = :description,
+                        `capacite` = :capacite,
+                        `date_debut` = :date_debut,
+                        `date_fin` = :date_fin,
+                        `disponibilite` = :disponibilite
+                    WHERE id_activite = :id_activite;";
+    
+            $stmt = $this->database->getConnection()->prepare($sql);
+    
+            $stmt->bindParam(':nom_activite',$this-> nom_activite, PDO::PARAM_STR);
+            $stmt->bindParam(':description', $this-> description, PDO::PARAM_STR);
+            $stmt->bindParam(':capacite',$this-> capacite, PDO::PARAM_INT); 
+            $stmt->bindParam(':date_debut',$this-> date_debut ,PDO::PARAM_STR); 
+            $stmt->bindParam(':date_fin',$this-> date_fin,PDO::PARAM_STR); 
+            $stmt->bindParam(':disponibilite',$this-> disponibilite , PDO::PARAM_BOOL); 
 
+            if ($stmt->execute()) {
+                echo "L'activité a été mise à jour avec succès.";
+            } else {
+                echo "Erreur lors de la mise à jour de l'activité: " . implode(", ", $stmt->errorInfo());
+            }    
+
+    }
+
+    public function deleteActivite($id){
+
+        $sql="DELETE FROM activites WHERE activites.id_activite=:id";
+
+        $stmt=$this->database->getConnection()->prepare($sql);
+
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+
+        if ($stmt->execute()) {
+            echo "L'activité a été supprimée avec succès.";
+        } else {
+            echo "Erreur lors de la suppression de l'activité: " . implode(", ", $stmt->errorInfo());
+        }
     }
 }
 
