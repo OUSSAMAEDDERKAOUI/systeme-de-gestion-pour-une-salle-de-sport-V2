@@ -179,7 +179,6 @@
                 <?php
                     
 
-                    echo $_SESSION['user_prenom'];
                 ?>
             </div>
         </section>
