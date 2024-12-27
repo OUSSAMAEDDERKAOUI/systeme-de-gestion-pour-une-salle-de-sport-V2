@@ -10,8 +10,11 @@ class Admin extends User{
                                                                  JOIN users on users.id_user=reservations.id_membre 
                                                                  JOIN activites on reservations.id_activite= activites.id_activite  ;");
 
-        $stmt->execute();
-
+        if ($stmt->execute()) {
+            echo "L'affichage des membres a été realisée avec succès.";
+        } else {
+            echo "Erreur lors de L'affichage des membres " . implode(", ", $stmt->errorInfo());
+        }
         $members = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $members;
@@ -20,8 +23,11 @@ class Admin extends User{
      public function confirmReservation($id){
         $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
         $stmt->bindParam(':id',$id,PDO::PARAM_INT);
-        $stmt->execute();
-        $confirmReservation= $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($stmt->execute()) {
+            echo "La confirmation de la reservation a été realisée avec succès.";
+        } else {
+            echo "Erreur lors de La confirmation de la  reservation" . implode(", ", $stmt->errorInfo());
+        }        $confirmReservation= $stmt->fetchAll(PDO::FETCH_ASSOC);
         return  $confirmReservation ;
      }
      
