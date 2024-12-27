@@ -1,5 +1,5 @@
 <?php
-require __DIR__ .'/users.php';
+require_once __DIR__ .'/users.php';
 // require __DIR__ .'/../config/db.php';
 
 class Admin extends User{
@@ -21,7 +21,7 @@ class Admin extends User{
     }
      
      public function confirmReservation($id){
-        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
+        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservations.statut='Confirmé' WHERE reservations.id_reservation = :id ");
         $stmt->bindParam(':id',$id,PDO::PARAM_INT);
         if ($stmt->execute()) {
             echo "La confirmation de la reservation a été realisée avec succès.";

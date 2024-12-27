@@ -42,13 +42,13 @@
 
         <div class="flex flex-col justify-between flex-1 mt-6">
             <nav>
-                <a class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg dark:bg-black dark:text-gray-200" href="#">
+                <!-- <a class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-lg dark:bg-black dark:text-gray-200" href="#">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 11H5M19 11C20.1046 11 21 11.8954 21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V13C3 11.8954 3.89543 11 5 11M19 11V9C19 7.89543 18.1046 7 17 7M5 11V9C5 7.89543 5.89543 7 7 7M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7M7 7H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
                     <span class="mx-4 font-medium">Statistics</span>
-                </a>
+                </a> -->
 
                 <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@
                         <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
-                    <span class="mx-4 font-medium">Activities</span>
+                    <span class="mx-4 font-medium"> Add a reservation  </span>
                 </a>
 
                 <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
@@ -86,8 +86,62 @@
 
     <main class="w-full bg-gray-200 h-screen text-black">
 
+
+    <!-- Add New Booking Form -->
+    <div id="add-form" class="flex  justify-center items-center fixed inset-0 bg-black bg-opacity-80">
+                <form method="POST" action="../classes/functions/addReservation.php" class="flex flex-col bg-black text-white py-3 px-10 rounded-md w-[50%] gap-3">
+                    <div id="infos-member" class="flex flex-col gap-3">
+
+                        <label class="font-medium" for="last-name">Member Last Name</label>
+                        <input id="last-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="last-name" placeholder="Enter the Member's Last Name" required>
+
+                        <label class="font-medium" for="first-name">Member First Name</label>
+                        <input id="first-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="first-name" placeholder="Enter the Member's First Name" required>
+                        
+                        <label class="font-medium" for="phone">Member Phone Number</label>
+                        <input id="phone" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="phone" placeholder="Enter the Member's Phone Number" required>
+
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <label for="select-activity">Choose Activity</label> 
+                        <select id="select-activity" class="text-black py-1 px-4 font-medium outline-none text-black" name="select-activity">
+                        <?php 
+                                require_once '../classes/users.php';
+                                $user=new User("","","","","","");
+                                $result = $user->showActivitiesMembre();
+                                
+
+
+                                if ($result->rowCount() > 0) {
+                                    while ($rows = $result->fetch(PDO::FETCH_ASSOC)) {
+                                        $id=$rows['id_activite'];
+
+                                    echo '<option class="text-black" value="'.$rows['id_activite'].'">'.$rows['nom_activite'].'</option>';
+
+                                }
+                            }
+                            ?> 
+                        </select>
+                       
+                    </div>
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+                        <input type="date" id="date" name="date" required class=" text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    </div>
+
+                    <div class="flex justify-end gap-5 mt-3">
+                        <a href="../classes/functions/addReservation.php">
+
+                        <button id="confirm-add" class="font-medium py-1 px-5 bg-orange-500 text-black transition-all duration-300 rounded-sm hover:scale-105" type="submit">Save</button>
+                        </a>  
+                        <button id="cancel-add" class="font-medium py-1 px-5 border border-white rounded-sm transition-all duration-300 hover:text-black hover:bg-gray-500 hover:border-none" type="button">Annuler</button>
+                    </div>
+                </form>
+            </div>
+
         <!-- STATISTICS SECTION -->
-        <section id="membre-statistics" class=" flex items-center gap-10 flex-wrap px-14 py-10">
+        <!-- <section id="membre-statistics" class=" flex items-center gap-10 flex-wrap px-14 py-10">
             <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
                 <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
                 <h2 class="text-xl font-semibold">16</h2>
@@ -120,10 +174,10 @@
                 <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
                 <h2 class="text-xl font-semibold">16</h2>
             </div>
-        </section>
+        </section> -->
 
         <!-- PROFILE SECTION -->
-        <section class="hidden flex justify-center mt-16" id="membre-profile">
+        <section class="  flex hidden justify-center mt-16" id="admin-profile">
             <div class="bg-white overflow-hidden shadow rounded-lg border h-max py-5">
                 <div class="px-4 py-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -141,9 +195,9 @@
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <?php
-                                    if(isset($_SESSION)){
-                                        echo $_SESSION['user_prenom'];
-                                    }
+                                if (isset($_SESSION)) {
+                                    echo $_SESSION['user_prenom'];
+                                }
                                 ?>
                             </dd>
                         </div>
@@ -153,9 +207,9 @@
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <?php
-                                    if(isset($_SESSION)){
-                                        echo $_SESSION['user_nom'];
-                                    }
+                                if (isset($_SESSION)) {
+                                    echo $_SESSION['user_nom'];
+                                }
                                 ?>
                             </dd>
                         </div>
@@ -165,9 +219,9 @@
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <?php
-                                    if(isset($_SESSION)){
-                                        echo $_SESSION['user_email'];
-                                    }
+                                if (isset($_SESSION)) {
+                                    echo $_SESSION['user_email'];
+                                }
                                 ?>
                             </dd>
                         </div>
@@ -177,14 +231,15 @@
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <?php
-                                    if(isset($_SESSION)){
-                                        echo $_SESSION['user_phone'];
-                                    }
+                                if (isset($_SESSION)) {
+                                    echo $_SESSION['user_phone'];
+                                }
                                 ?>
                             </dd>
                         </div>
                         <div class="pt-10 ml-5">
-                            <button type="button" class="font-medium bg-orange-500 py-1 px-4 rounded-md">Modifier</button>
+                            <button type="button"
+                                class="font-medium bg-orange-500 py-1 px-4 rounded-md">Modifier</button>
                         </div>
                     </dl>
                 </div>
@@ -193,9 +248,77 @@
 
         <!-- ACTIVITY SECTION -->
         <section>
-            <div>
-                
-            </div>
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+                        <div class="p-6">
+                            <h3 class="text-lg font-medium text-gray-900 mb-4">Prochain Rendez-vous</h3>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg">
+
+                            <?php
+
+             echo' <div id="appointments" class="tab-content mt-16">
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6 flex justify-between items-center">
+                        <h2 class="text-lg font-medium text-gray-900">Mes Rendez-vous</h2>
+                        <div class="flex space-x-3">
+                            <select id="statusFilter"  class="rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <option value="all">Tous les statuts</option>
+                                <option value="confirmed">Confirmés</option>
+                                <option value="pending">En attente</option>
+                                <option value="cancelled">Annulés</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 ">
+                        <ul id="appointmentsList" class="divide-y divide-gray-200">
+                            <li class="p-4">
+                                <div class="flex justify-between items-start">';
+
+                                $id = $_SESSION["user_id"];
+                                
+                                require_once "../classes/membre.php";
+                                
+                                try {
+                                    $new_membre = new Membre("", "", "", "", "", ""); 
+                                    $result = $new_membre->allReservationsMembre($id); 
+                                
+                                    if ($result->rowCount() > 0) {
+                                        while ($rows = $result->fetch(PDO::FETCH_ASSOC)) {
+                                            $id_reservation = $rows["id_reservation"];
+                                            echo '<li class="p-4">
+                                                    <div class="flex justify-between items-start">';
+                                            echo '<p class="font-medium w-[30%] text-black"><span class="font-bold text-blue-600 "> Activite </span>: ' . htmlspecialchars($rows['nom_activite']) . '</p>';
+                                            echo '<p class="text-sm text-black w-[30%] mt-1"><span class="font-bold text-blue-600 "> date reservation </span>: ' . htmlspecialchars($rows['date_reservation']) . '</p>';
+                                            echo '<p class="text-sm text-black  w-[30%] mt-1"><span class="font-bold text-blue-600"> statut </span>: ' . htmlspecialchars($rows['statut']) . '</p>'; // correction de la variable
+                                            echo '<div class="flex space-x-2">
+                                                    <a href="../classes/functions/confirmReservation.php?id=' . htmlspecialchars($id_reservation) . '">
+                                                    <button class="modifier_reserv text-green-600 hover:text-blue-800 text-sm font-medium">
+                                                        Confirmer
+                                                    </button>
+                                                    </a>
+                                                    <a href="../classes/functions/cancelReservation.php?id=' . htmlspecialchars($id_reservation) . '">
+                                                        <button class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                                            Annuler
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </li>';
+                                        }
+                                    } else {
+                                        echo '<p>Aucune réservation trouvée.</p>';
+                                    }
+                                } catch (PDOException $e) {
+                                    echo 'Erreur : ' . htmlspecialchars($e->getMessage());
+                                }
+           
+                                    ?>
+                                   
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>'
         </section>
     </main>
 
