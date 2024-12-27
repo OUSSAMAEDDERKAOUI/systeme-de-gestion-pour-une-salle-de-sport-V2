@@ -124,8 +124,11 @@ class User{
     public function showActivities() {
         $stmt = $this->database->getConnection()->prepare("SELECT * FROM activites");
     
-        $stmt->execute();
-    
+        if ($stmt->execute()) {
+            echo " L'affichage des activites a été realisée avec succès.";
+        } else {
+            echo " Erreur lors de L'affichage des activites " . implode(", ", $stmt->errorInfo());
+        }    
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
     
         if ($result) {

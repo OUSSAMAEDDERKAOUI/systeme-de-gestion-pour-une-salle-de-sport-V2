@@ -2,27 +2,31 @@
 require __DIR__ .'/users.php';
 
 class Membre extends User{
-    public $path = "./";
     
     // SIGNUP FUNCTION
     public function signup($firstName, $lastName, $phone, $email, $password) {
         if (empty($firstName) || empty($lastName) || empty($phone) || empty($email) || empty($password)) {
-            return "Tous les champs sont obligatoires";
+            echo "Tous les champs sont obligatoires";
         }
 
+        
         $sql = "SELECT * FROM users WHERE email = :email";
         $stmt = $this->database->getConnection()->prepare($sql);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
+        
         if($stmt->rowCount() > 0){
-            return "User Already Exist";
+            echo "User Already Exist";
         }
-    
+        
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    
+        
         try {
-            $stmt = $this->database->getConnection()->prepare("INSERT INTO users (prenom, nom, phone, email, password) VALUES (:prenom, :nom, :phone, :email, :pw)");
-
+            echo "start !<br>";
+            $test = $this->database->getConnection();
+            echo "db !<br>";
+            $stmt = $test->prepare("INSERT INTO users (prenom, nom, telephone, email, password) VALUES (:prenom, :nom, :phone, :email, :pw)");
+            echo "hash !<br>";
             $stmt->bindParam(":prenom", $firstName, PDO::PARAM_STR);
             $stmt->bindParam(":nom", $lastName, PDO::PARAM_STR);
             $stmt->bindParam(":phone", $phone, PDO::PARAM_STR);
@@ -31,7 +35,7 @@ class Membre extends User{
     
             $stmt->execute();
     
-            header("location: {$this->path}/login.php");
+            header("location: ../../views/login.php");
     
         } catch (PDOException $e) {
             return "Erreur lors de l'inscription : " . $e->getMessage();
@@ -60,6 +64,7 @@ class Membre extends User{
             return "Erreur lors de la Réservation : " . $e->getMessage();
         }
     }
+    
 
 }
 

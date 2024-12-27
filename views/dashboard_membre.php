@@ -85,7 +85,7 @@
     <main class="w-full bg-gray-200 h-screen text-black">
 
         <!-- STATISTICS SECTION -->
-        <section id="membre-statistics" class="hidden flex items-center gap-10 flex-wrap px-14 py-10">
+        <section id="membre-statistics" class=" flex items-center gap-10 flex-wrap px-14 py-10">
             <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
                 <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
                 <h2 class="text-xl font-semibold">16</h2>
@@ -121,7 +121,7 @@
         </section>
 
         <!-- PROFILE SECTION -->
-        <section class="hidden" id="membre-profile">
+        <section class="" id="membre-profile">
             <div class="bg-white overflow-hidden shadow rounded-lg border h-screen">
                 <div class="px-4 py-5 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -176,11 +176,7 @@
         <!-- ACTIVITY SECTION -->
         <section>
             <div>
-                <?php
-                    
-
-                    echo $_SESSION['user_prenom'];
-                ?>
+                
             </div>
         </section>
     </main>

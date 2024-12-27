@@ -72,6 +72,7 @@
             <a href="../actions/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
+    
 
 </body>
 </html>
