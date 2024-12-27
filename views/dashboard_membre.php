@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if($_SESSION['user_role'] !== 'membre'){
+        $path = $_SESSION['user_role'];
+        header("Location: ./dashboard_$path.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +79,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-5">
-            <a href="#" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
+            <a href="../actions/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
     <main class="w-full bg-gray-200 h-screen text-black">
@@ -112,7 +121,7 @@
         </section>
 
         <!-- PROFILE SECTION -->
-        <section id="membre-profile">
+        <section class="hidden" id="membre-profile">
             <div class="bg-white overflow-hidden shadow rounded-lg border h-screen">
                 <div class="px-4 py-5 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -167,10 +176,11 @@
         <!-- ACTIVITY SECTION -->
         <section>
             <div>
-                
-            </div>
-            <div>
-                
+                <?php
+                    
+
+                    echo $_SESSION['user_prenom'];
+                ?>
             </div>
         </section>
     </main>

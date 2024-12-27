@@ -13,7 +13,7 @@ class User{
     protected $database ;
 
 
-    public function __construct($new_nom, $new_prenom, $new_telephone, $new_email, $new_password, $role){
+    public function __construct($new_nom,$new_prenom,$new_telephone,$new_email,$new_password,$role){
         $this->nom = $new_nom;
         $this->prenom = $new_prenom;
         $this->telephone = $new_telephone;
@@ -78,16 +78,29 @@ class User{
 
     // LOGIN FUNCTION
     public function login($email, $password) {
-        $stmt = $this->database->getConnection()->prepare("SELECT * FROM users WHERE email = :email");
-        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
-        $stmt->execute();
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $query = "SELECT * FROM users WHERE email = :email";
+        $stmt = $this->database->getConnection()->prepare($query);
 
-        if ($user && password_verify($password, $user['password'])) {
-            return $user;
-        } else {
-            return false;
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (password_verify($password, $row['password'])) {
+                $this->id = $row['id_user'];
+                $this->prenom = $row['prenom'];
+                $this->nom = $row['nom'];
+                $this->email = $row['email'];
+                $this->telephone = $row['telephone'];
+                $this->role = $row['role'];
+
+                return $this;
+            }
         }
+
+        return false;
     }
 
     // READ USER INFOS

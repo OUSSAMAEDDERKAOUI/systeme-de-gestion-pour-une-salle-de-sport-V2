@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if($_SESSION['user_role'] !== 'admin'){
+        $path = $_SESSION['user_role'];
+        header("Location: ./dashboard_$path.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +27,7 @@
         <div class="flex flex-col items-center mt-6 -mx-2">
             <img class="object-cover w-24 h-24 mx-2 rounded-full" src="https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=1889&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="avatar">
             <h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200">Admin</h4>
-            <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400">john@example.com</p>
+            <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400"><?php echo $_SESSION['user_email']; ?></p>
         </div>
 
         <div class="flex flex-col justify-between flex-1 mt-6">
@@ -60,7 +69,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-5">
-            <a href="#" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
+            <a href="../actions/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
 
