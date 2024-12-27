@@ -82,6 +82,8 @@
             <a href="../actions/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
+
+
     <main class="w-full bg-gray-200 h-screen text-black">
 
         <!-- STATISTICS SECTION -->
@@ -121,11 +123,11 @@
         </section>
 
         <!-- PROFILE SECTION -->
-        <section class="" id="membre-profile">
-            <div class="bg-white overflow-hidden shadow rounded-lg border h-screen">
-                <div class="px-4 py-5 sm:px-6">
+        <section class="hidden flex justify-center mt-16" id="membre-profile">
+            <div class="bg-white overflow-hidden shadow rounded-lg border h-max py-5">
+                <div class="px-4 py-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        User Profile
+                        Member Profile
                     </h3>
                     <p class="mt-1 max-w-2xl text-sm text-gray-500">
                         This is all your informations.
@@ -138,7 +140,11 @@
                                 First Name
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                John
+                                <?php
+                                    if(isset($_SESSION)){
+                                        echo $_SESSION['user_prenom'];
+                                    }
+                                ?>
                             </dd>
                         </div>
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -146,7 +152,11 @@
                                 Last Name
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                Doe
+                                <?php
+                                    if(isset($_SESSION)){
+                                        echo $_SESSION['user_nom'];
+                                    }
+                                ?>
                             </dd>
                         </div>
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -154,7 +164,11 @@
                                 Email address
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                johndoe@example.com
+                                <?php
+                                    if(isset($_SESSION)){
+                                        echo $_SESSION['user_email'];
+                                    }
+                                ?>
                             </dd>
                         </div>
                         <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -162,7 +176,11 @@
                                 Phone number
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                (123) 456-7890
+                                <?php
+                                    if(isset($_SESSION)){
+                                        echo $_SESSION['user_phone'];
+                                    }
+                                ?>
                             </dd>
                         </div>
                         <div class="pt-10 ml-5">
