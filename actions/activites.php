@@ -25,18 +25,30 @@ class Activite {
         $this->database=new Database();
     }
     public function addActivite(){
+
         $sql="INSERT INTO activites( nom_activite, description, capacite, date_debut, date_fin, disponibilite) 
         VALUES (:nom_activite,:description,:capacite,:date_debut,:date_fin,:disponibilite)";
+
         $stmt=$this->database->getConnection()->prepare($sql);
-        $stmt->bindParam(':nom_activite', $nom_activite, PDO::PARAM_STR);
-        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-        $stmt->bindParam(':capacite', $capacite, PDO::PARAM_INT); 
-        $stmt->bindParam(':date_debut', $date_debut ,PDO::PARAM_STR); 
-        $stmt->bindParam(':date_fin', $date_fin,PDO::PARAM_STR); 
-        $stmt->bindParam(':disponibilite', $disponibilite , PDO::PARAM_BOOL); 
+
+        $stmt->bindParam(':nom_activite',$this-> nom_activite, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $this-> description, PDO::PARAM_STR);
+        $stmt->bindParam(':capacite',$this-> capacite, PDO::PARAM_INT); 
+        $stmt->bindParam(':date_debut',$this-> date_debut ,PDO::PARAM_STR); 
+        $stmt->bindParam(':date_fin',$this-> date_fin,PDO::PARAM_STR); 
+        $stmt->bindParam(':disponibilite',$this-> disponibilite , PDO::PARAM_BOOL); 
+
         $stmt->execute();
 
     }
 }
 
 ?>
+
+
+<!-- try {
+    $nouvelleActivite = new Activite('Nom de l activité', 'Description de l activité', 50, '2023-10-01', '2023-10-10', 'Oui');
+    $nouvelleActivite->addActivite();
+} catch (Exception $e) {
+    echo "Erreur: " . $e->getMessage();
+} -->
