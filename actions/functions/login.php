@@ -22,7 +22,7 @@
                     $_SESSION['user_prenom'] = $loggedInUser->get_prenom();
                     $_SESSION['user_nom'] = $loggedInUser->get_nom();
                     $_SESSION['user_email'] = $loggedInUser->get_email();
-                    $_SESSION['user_nom'] = $loggedInUser->get_telephone();
+                    $_SESSION['user_phone'] = $loggedInUser->get_telephone();
                     $_SESSION['user_role'] = $loggedInUser->get_role();
 
                     if($_SESSION['user_role'] ==='admin'){

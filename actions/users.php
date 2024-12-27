@@ -1,6 +1,5 @@
 <?php
 require __DIR__.'/../config/db.php';
-// include __DIR__ .'/admin.php' ;
 
 class User{
     protected int $id;
@@ -123,16 +122,16 @@ class User{
     // READ ACTIVITIES FUNCTION
     public function showActivities() {
         $stmt = $this->database->getConnection()->prepare("SELECT * FROM activites");
-    
-        $stmt->execute();
-    
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-    
-        if ($result) {
+        
+        if($stmt->execute()){
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
             return $result;
-        } else {
-            return null; 
+        }else{
+            echo "Erreur lors de la récupération des activités hhhhhh.";
+            return null;;
         }
+    
+        
     }
     public function reservationCancel($id){
         $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
