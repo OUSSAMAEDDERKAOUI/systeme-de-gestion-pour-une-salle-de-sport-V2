@@ -52,11 +52,11 @@
         <section class="flex flex-col gap-2 bg-black w-[35vw] p-8 rounded-md shadow-sm shadow-orange-500">
             <h1 class="font-semibold text-2xl text-center">WELCOME TO <span class="text-orange-500">OXYFIT</span></h1>
             <h2 class="font-semibold text-xl text-center mb-5">SIGN UP FORM</h2>
-            <form method="" action="" class="flex flex-col gap-3">
+            <form method="POST" action="../actions/functions/signup.php" class="flex flex-col gap-3">
                 <label for="prenom">First Name</label>
-                <input type="text" name="prenom" id="prenom" class="py-1 px-3 text-black placeholder:text-gray-600 outline-none" placeholder="Ex: Peter">
+                <input type="text" name="prenom" id="prenom" class="py-1 px-3 text-black placeholder:text-gray-600 outline-none" placeholder="Ex: oussama">
                 <label for="nom">Last Name</label>
-                <input type="text" name="nom" id="nom" class="py-1 px-3 text-black placeholder:text-gray-600 outline-none" placeholder="Ex: Jhonson">
+                <input type="text" name="nom" id="nom" class="py-1 px-3 text-black placeholder:text-gray-600 outline-none" placeholder="Ex: eddson">
                 <label for="phone">Phone Number</label>
                 <input type="tel" name="phone" id="phone" class="py-1 px-3 text-black placeholder:text-gray-600 outline-none" placeholder="Ex: +212 612345678">
                 <label for="email">Email Adress</label>
