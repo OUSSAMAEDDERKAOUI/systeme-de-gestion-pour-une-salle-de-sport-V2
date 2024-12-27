@@ -64,8 +64,29 @@ class Membre extends User{
             return "Erreur lors de la Réservation : " . $e->getMessage();
         }
     }
+
+    public function allReservationsMembre($id){
+            $stmt = $this->database->getConnection()->prepare("SELECT * 
+                                        FROM users U
+                                        JOIN reservations R ON R.id_membre = U.id_user
+                                        JOIN activites A ON A.id_activite = R.id_activite
+                                        WHERE id_membre=:id;");
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        
+            if ($stmt->execute()) {
+                echo "La selection des reservations a été realisée avec succès.";
+            } else {
+                echo "Erreur lors de La selection des reservations  reservation" . implode(", ", $stmt->errorInfo());
+            }   
+                return $stmt;
+            
+        // } catch (Exception $e) {
+        //     echo "Erreur lors de l'affichage des réservations: " . $e->getMessage();
+        //     return null;
+        // }
     
 
+}
 }
 
 ?>
