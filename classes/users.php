@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/../config/db.php';
+require_once __DIR__.'./../config/db.php';
 
 class User{
     protected int $id;
@@ -123,9 +123,7 @@ class User{
     public function showActivities() {
         $stmt = $this->database->getConnection()->prepare("SELECT * FROM activites");
     
-        if ($stmt->execute()) {
-            echo " L'affichage des activites a été realisée avec succès.";
-        } else {
+        if (!$stmt->execute()) {
             echo " Erreur lors de L'affichage des activites " . implode(", ", $stmt->errorInfo());
         }    
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC); 
@@ -135,22 +133,17 @@ class User{
         }else{
             echo "Erreur lors de la récupération des activités hhhhhh.";
             return null;;
-        }
-    
-        
+        } 
     }
     public function reservationCancel($id){
-        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservation.statut='Annulé' WHERE reservations.id_reservation = :id ");
+        $stmt = $this->database->getConnection()->prepare("UPDATE  reservations SET reservations.statut='Annulé' WHERE reservations.id_reservation = :id ");
         $stmt->bindParam(':id',$id,PDO::PARAM_INT);
         if ($stmt->execute()) {
             echo "la suppression a été realisée avec succès.";
         } else {
             echo "Erreur lors de la suppression de reservation :  " . implode(", ", $stmt->errorInfo());
-        }    
-            // $reservationCancel= $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // return $reservationCancel ;
-     }
-
+        }
+    }
 }
  
 

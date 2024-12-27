@@ -1,4 +1,6 @@
 <?php
+
+require_once __DIR__ .'/../config/db.php';
 class Activite {
     public $nom_activite;
     public $description;
@@ -31,12 +33,12 @@ class Activite {
 
         $stmt=$this->database->getConnection()->prepare($sql);
 
-        $stmt->bindParam(':nom_activite',$this-> nom_activite, PDO::PARAM_STR);
-        $stmt->bindParam(':description', $this-> description, PDO::PARAM_STR);
-        $stmt->bindParam(':capacite',$this-> capacite, PDO::PARAM_INT); 
-        $stmt->bindParam(':date_debut',$this-> date_debut ,PDO::PARAM_STR); 
-        $stmt->bindParam(':date_fin',$this-> date_fin,PDO::PARAM_STR); 
-        $stmt->bindParam(':disponibilite',$this-> disponibilite , PDO::PARAM_BOOL); 
+        $stmt->bindParam(':nom_activite',$this->nom_activite, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $this->description, PDO::PARAM_STR);
+        $stmt->bindParam(':capacite',$this->capacite, PDO::PARAM_INT); 
+        $stmt->bindParam(':date_debut',$this->date_debut ,PDO::PARAM_STR); 
+        $stmt->bindParam(':date_fin',$this->date_fin,PDO::PARAM_STR); 
+        $stmt->bindParam(':disponibilite',$this->disponibilite , PDO::PARAM_BOOL); 
 
         if ($stmt->execute()) {
             echo "L'activité a été ajoutée avec succès.";
@@ -84,6 +86,24 @@ class Activite {
             echo "L'activité a été supprimée avec succès.";
         } else {
             echo "Erreur lors de la suppression de l'activité: " . implode(", ", $stmt->errorInfo());
+        }
+    }
+
+    public function moyenneCapacite(){
+        try {
+            $stmt = $this->database->getConnection()->prepare("SELECT AVG(activites.capacite) AS moy_capacite
+                                                                    FROM activites;
+                                                                    ;");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result) {
+                return $result;
+            } else {
+                throw new Exception("Aucune réservation annulée trouvée.");
+            }
+        } catch (Exception $e) {
+            echo "Erreur : ". $e->getMessage();
+            return null;
         }
     }
 }

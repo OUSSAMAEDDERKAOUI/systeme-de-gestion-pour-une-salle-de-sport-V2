@@ -79,7 +79,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-5">
-            <a href="../actions/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
+            <a href="../classes/functions/logout.php" class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
 

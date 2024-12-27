@@ -90,7 +90,7 @@ if ($_SESSION['user_role'] !== 'admin') {
         </div>
 
         <div class="flex items-center justify-end mt-5">
-            <a href="../actions/functions/logout.php"
+            <a href="../classes/functions/logout.php"
                 class="text-gray-400 text-xs underline duration-500 hover:text-gray-200">Disconnect</a>
         </div>
     </aside>
@@ -98,121 +98,88 @@ if ($_SESSION['user_role'] !== 'admin') {
 
     <main class="w-full bg-gray-200 h-screen text-black">
         <!-- STATISTICS SECTION -->
-        <section id="admin-statistics" class="hidden flex items-center gap-10 flex-wrap px-14 py-10">
+        <section id="admin-statistics" class="hidden grid grid-cols-3 gap-10 px-14 py-10 text-center">
             <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div
-                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-        </section>
+                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-green-500 rounded-md flex-1">
+                <h1 class="text-2xl font-semibold">Confirmed Reservations</h1>
+                <h2 class="text-xl font-semibold">
+                    <?php
+                        require_once "../classes/reservations.php";
+    
+                        $booking = new Reservation("", "", "", "", "");
+                    
+                        $reservations = $booking->confirmedReservation();
 
-        <!-- PROFILE SECTION -->
-        <section class="hidden flex justify-center mt-16" id="admin-profile">
-            <div class="bg-white overflow-hidden shadow rounded-lg border h-max py-5">
-                <div class="px-4 py-2">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        Member Profile
-                    </h3>
-                    <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                        This is all your informations.
-                    </p>
-                </div>
-                <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-                    <dl class="sm:divide-y sm:divide-gray-200">
-                        <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                First Name
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <?php
-                                if (isset($_SESSION)) {
-                                    echo $_SESSION['user_prenom'];
-                                }
-                                ?>
-                            </dd>
-                        </div>
-                        <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Last Name
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <?php
-                                if (isset($_SESSION)) {
-                                    echo $_SESSION['user_nom'];
-                                }
-                                ?>
-                            </dd>
-                        </div>
-                        <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Email address
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <?php
-                                if (isset($_SESSION)) {
-                                    echo $_SESSION['user_email'];
-                                }
-                                ?>
-                            </dd>
-                        </div>
-                        <div class="py-3 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="text-sm font-medium text-gray-500">
-                                Phone number
-                            </dt>
-                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                <?php
-                                if (isset($_SESSION)) {
-                                    echo $_SESSION['user_phone'];
-                                }
-                                ?>
-                            </dd>
-                        </div>
-                        <div class="pt-10 ml-5">
-                            <button type="button"
-                                class="font-medium bg-orange-500 py-1 px-4 rounded-md">Modifier</button>
-                        </div>
-                    </dl>
-                </div>
+                        echo $reservations['nbr_reservations_confirme'];
+                    ?>
+                </h2>
+            </div>
+            <div
+                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-red-500 rounded-md flex-1">
+                <h1 class="text-2xl font-semibold">Canceled Reservations</h1>
+                <h2 class="text-xl font-semibold">
+                    <?php
+                        require_once "../classes/reservations.php";
+    
+                        $booking = new Reservation("", "", "", "", "");
+                    
+                        $reservations = $booking->rejectedReservation();
+
+                        echo $reservations['nbr_reservations_annule'];
+                    ?>
+                </h2>
+            </div>
+            <div
+                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-blue-500 rounded-md flex-1">
+                <h1 class="text-2xl font-semibold">Moyenne Capacité des Activités</h1>
+                <h2 class="text-xl font-semibold">
+                    <?php
+                        require_once "../classes/activites.php";
+    
+                        $activite = new Activite("", "", "", "", "", "");
+                    
+                        $activities = $activite->moyenneCapacite();
+
+                        echo (int)$activities['moy_capacite'];
+                    ?>
+                </h2>
+            </div>
+            <div
+                class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-yellow-500 rounded-md flex-1">
+                <h1 class="text-2xl font-semibold">Nombre des Membres qui ont Réservé</h1>
+                <h2 class="text-xl font-semibold">
+                    <?php
+                        require_once "../classes/reservations.php";
+    
+                        $booking = new Reservation("", "", "", "", "");
+                    
+                        $members = $booking->nbrMembersReserved();
+
+                        echo $members['nbr_membres'];
+                    ?>
+                </h2>
+            </div>
+            <div
+                class="col-span-2 flex flex-col gap-8 text-left justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-purple-500 rounded-md flex-1">
+                <h1 class="text-2xl font-semibold">Les Activités les Plus Réservés</h1>
+                <h2 class="text-lg font-light">
+                    <?php
+                        require_once "../classes/reservations.php";
+    
+                        $booking = new Reservation("", "", "", "", "");
+                    
+                        $activites = $booking->mostReserved();
+
+                        foreach ($activites as $activite){
+                            echo "<p class=''> - ".$activite['nom_activite']. " (" . $activite['nbr_reservation'] . " Réservations)</p>";
+                        }
+                    ?>
+                </h2>
             </div>
         </section>
 
         <!-- ACTIVITY SECTION -->
-        <section>
+        <section id="admin-activities" class="hidden overflow-auto w-[85vw] h-screen px-5">
             <div class="" id="manage-activity">
                 <div class="flex items-center justify-around py-10">
                     <button id="btn-add-activity" type="button"
@@ -242,27 +209,25 @@ if ($_SESSION['user_role'] !== 'admin') {
                     </div>
                 </div>
             </div>
-            <div class="mx-5 text-[10px] h-[70vh] overflow-auto">
+            <div class="text-[10px]">
                 <table class=" divide-y divide-gray-200">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nom</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Capacité</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Debut</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Debut</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Disponibilité</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Nom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Description</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Capacité</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Date Debut</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Date Debut</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Disponibilité</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Action</th>
                     </tr>
 
 
                     <?php
-                        require_once "../actions/users.php";
+                        require_once "../classes/users.php";
     
                         $user = new User("", "", "", "", "", "");
                     
                         $activities = $user->showActivities();
-
-                        // print_r($activities);
 
                         foreach ($activities as $activity) {
                             echo "<tr class='bg-white divide-y divide-gray-200'>";
@@ -274,7 +239,7 @@ if ($_SESSION['user_role'] !== 'admin') {
                                 echo "<td class='px-6 py-4 whitespace-nowrap'>".$activity['disponibilite']."</td>";
                                 echo "<td class='px-6 py-4 whitespace-nowrap'>
                                     <button class='px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out'>Edit</button>
-                                    <a href='delete_activity.php?id=".$activity['id_activite']."'><button class='ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out'>Delete</button></a>
+                                    <a href='../classes/functions/deleteActivity.php?id=".$activity['id_activite']."'><button class='ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out'>Delete</button></a>
                                     </td>";
                             echo "</tr>";
                         }
@@ -284,8 +249,113 @@ if ($_SESSION['user_role'] !== 'admin') {
                 </table>
             </div>
         </section>
+
+
+        <!-- MEMBERS SECTION -->
+        <section id="admin-members" class="hidden flex items-center overflow-auto w-[85vw] h-screen px-5">
+            <div class="text-[10px]">
+                <table class="w-[80vw] divide-y divide-gray-200">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Prenom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Nom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Email</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Téléphone</th>
+                    </tr>
+
+
+                    <?php
+                        require_once "../classes/admin.php";
+    
+                        $admin = new Admin("", "", "", "", "", "");
+                    
+                        $members = $admin->allMembers();
+
+                        foreach ($members as $member){
+                            echo "<tr class='bg-white divide-y divide-gray-200'>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$member['prenom']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$member['nom']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$member['email']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$member['telephone']."</td>";
+                            echo "</tr>";
+                        }
+                    ?>
+
+
+                </table>
+            </div>
+        </section>
+
+
+        <!-- BOOKINGS SECTION -->
+        <section id="admin-booking" class="hidden flex items-center overflow-auto w-[85vw] h-screen px-5">
+            <div class="text-[10px]">
+                <table class="w-[80vw] divide-y divide-gray-200">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Prenom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Nom</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Activite</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Statut</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase bg-black">Action</th>
+                    </tr>
+
+
+                    <?php
+                        require_once "../classes/reservations.php";
+    
+                        $booking = new Reservation("", "", "", "", "");
+                    
+                        $reservations = $booking->allReservations();
+
+                        foreach ($reservations as $reservation){
+                            echo "<tr class='bg-white divide-y divide-gray-200'>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$reservation['prenom']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$reservation['nom']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$reservation['nom_activite']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$reservation['date_reservation']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>".$reservation['statut']."</td>";
+                                echo "<td class='px-6 py-4 whitespace-nowrap'>
+                                    <a href='../classes/functions/confirmBooking.php?id=".$reservation['id_reservation']."'><button class='px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out'>Confirmer</button></a>
+                                    <a href='../classes/functions/cancelBooking.php?id=".$reservation['id_reservation']."'><button class='ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out'>Annuler</button>
+                                    </td>";
+                            echo "</tr>";
+                        }
+                    ?>
+
+
+                </table>
+            </div>
+        </section>
+
+
+        <!-- Add New Activity Form -->
+        <section id="add-activity-form" class="hidden absolute top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50">
+            <form method="POST" action="../classes/functions/addActivity.php" class="flex flex-col bg-black text-white py-3 px-10 rounded-md w-[50%] gap-3">
+                <div id="infos-member" class="flex flex-col gap-3">
+                    <label class="font-medium" for="activity-name">Activity Name</label>
+                    <input id="activity-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="activity-name" placeholder="Enter the Activity Name" required>
+
+                    <label class="font-medium" for="description">Activity Description</label>
+                    <textarea id="description" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="description" placeholder="Enter the Description Here ..." required></textarea>
+
+                    <label class="font-medium" for="capacite">Activity Capacite</label>
+                    <input id="capacite" min="0" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="number" name="capacite" required>
+
+                    <label class="font-medium" for="start-date">Start Date</label>
+                    <input id="start-date" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="date" name="start-date" required>
+
+                    <label class="font-medium" for="end-date">End Date</label>
+                    <input id="end-date" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="date" name="end-date" required>
+                </div>
+
+                <div class="flex justify-end gap-5 mt-3">
+                    <button id="confirm-add-activity" name="save" class="font-medium py-1 px-5 bg-orange-500 text-black transition-all duration-300 rounded-sm hover:scale-105" type="submit">Save</button>
+                    <button id="cancel-add-activity" class="font-medium py-1 px-5 border border-white rounded-sm transition-all duration-300 hover:text-black hover:bg-gray-500 hover:border-none" type="button">Annuler</button>
+                </div>
+            </form>
+        </section>
+
     </main>
 
 </body>
-
 </html>
