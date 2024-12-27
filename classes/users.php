@@ -144,6 +144,25 @@ class User{
             echo "Erreur lors de la suppression de reservation :  " . implode(", ", $stmt->errorInfo());
         }
     }
+     public function showActivitiesMembre() {
+        $stmt = $this->database->getConnection()->prepare("SELECT activites.nom_activite , activites.id_activite  FROM activites");
+    
+        if ($stmt->execute()) {
+            echo " L'affichage des activites a été realisée avec succès.";
+        } else {
+            echo " Erreur lors de L'affichage des activites " . implode(", ", $stmt->errorInfo());
+        }    
+       
+    
+        if ($stmt) {
+            return $stmt;
+        }else{
+            echo "Erreur lors de la récupération des activités hhhhhh.";
+            return null;;
+        }
+    
+
+}
 }
  
 
