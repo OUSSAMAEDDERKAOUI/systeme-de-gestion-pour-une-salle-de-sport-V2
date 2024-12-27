@@ -16,6 +16,7 @@ openActivityPopup.addEventListener('click', function(){
 
 
 
+
 // ADMIN DASHBOARD ========================================
 
 
@@ -28,20 +29,6 @@ const optionActivity = document.getElementById('admin-activities-option');
 const optionBooking = document.getElementById('admin-bookings-option');
 const optionMembers = document.getElementById('admin-members-option');
 const optionStatistics = document.getElementById('admin-statistics-option');
-
-// const addForm = document.getElementById('add-form');
-// const openPopup = document.getElementById('add-new-booking');
-// const btnConfirm = document.getElementById('confirm-add');
-// const btnCancel = document.getElementById('cancel-add');
-
-
-// btnCancel.addEventListener('click', function(){
-//     addForm.classList.add('hidden');
-// });
-
-// openPopup.addEventListener('click', function(){
-//     addForm.classList.remove('hidden');
-// });
 
 
 optionActivity.addEventListener('click', function(){

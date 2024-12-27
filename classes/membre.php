@@ -74,7 +74,7 @@ class Membre extends User{
             $stmt->bindParam(':id',$id,PDO::PARAM_INT);
         
             if ($stmt->execute()) {
-                echo "La selection des reservations a été realisée avec succès.";
+                // echo "La selection des reservations a été realisée avec succès.";
             } else {
                 echo "Erreur lors de La selection des reservations  reservation" . implode(", ", $stmt->errorInfo());
             }   

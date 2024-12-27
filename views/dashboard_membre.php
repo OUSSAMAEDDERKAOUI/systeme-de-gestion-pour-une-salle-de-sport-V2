@@ -50,31 +50,31 @@
                     <span class="mx-4 font-medium">Statistics</span>
                 </a> -->
 
-                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                <div id="member-profile-option" class="cursor-pointer flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
                     <span class="mx-4 font-medium">Profile</span>
-                </a>
+                </div>
 
-                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                <div id="btn-add-booking" class="cursor-pointer flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 5V7M15 11V13M15 17V19M5 5C3.89543 5 3 5.89543 3 7V10C4.10457 10 5 10.8954 5 12C5 13.1046 4.10457 14 3 14V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V14C19.8954 14 19 13.1046 19 12C19 10.8954 19.8954 10 21 10V7C21 5.89543 20.1046 5 19 5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
                     <span class="mx-4 font-medium"> Add a reservation  </span>
-                </a>
+                </div>
 
-                <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
+                <div id="member-bookings-option" class="cursor-pointer flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="#">
                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.3246 4.31731C10.751 2.5609 13.249 2.5609 13.6754 4.31731C13.9508 5.45193 15.2507 5.99038 16.2478 5.38285C17.7913 4.44239 19.5576 6.2087 18.6172 7.75218C18.0096 8.74925 18.5481 10.0492 19.6827 10.3246C21.4391 10.751 21.4391 13.249 19.6827 13.6754C18.5481 13.9508 18.0096 15.2507 18.6172 16.2478C19.5576 17.7913 17.7913 19.5576 16.2478 18.6172C15.2507 18.0096 13.9508 18.5481 13.6754 19.6827C13.249 21.4391 10.751 21.4391 10.3246 19.6827C10.0492 18.5481 8.74926 18.0096 7.75219 18.6172C6.2087 19.5576 4.44239 17.7913 5.38285 16.2478C5.99038 15.2507 5.45193 13.9508 4.31731 13.6754C2.5609 13.249 2.5609 10.751 4.31731 10.3246C5.45193 10.0492 5.99037 8.74926 5.38285 7.75218C4.44239 6.2087 6.2087 4.44239 7.75219 5.38285C8.74926 5.99037 10.0492 5.45193 10.3246 4.31731Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
 
                     <span class="mx-4 font-medium">Bookings</span>
-                </a>
+                </div>
             </nav>
         </div>
 
@@ -87,97 +87,61 @@
     <main class="w-full bg-gray-200 h-screen text-black">
 
 
-    <!-- Add New Booking Form -->
-    <div id="add-form" class="flex  justify-center items-center fixed inset-0 bg-black bg-opacity-80">
-                <form method="POST" action="../classes/functions/addReservation.php" class="flex flex-col bg-black text-white py-3 px-10 rounded-md w-[50%] gap-3">
-                    <div id="infos-member" class="flex flex-col gap-3">
+        <!-- Add New Booking Form -->
+        <div id="add-booking-form" class="hidden flex justify-center items-center fixed inset-0 bg-black bg-opacity-80">
+            <form method="POST" action="../classes/functions/addReservation.php" class="flex flex-col bg-black text-white py-3 px-10 rounded-md w-[50%] gap-3">
+                <div id="infos-member" class="flex flex-col gap-3">
 
-                        <label class="font-medium" for="last-name">Member Last Name</label>
-                        <input id="last-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="last-name" placeholder="Enter the Member's Last Name" required>
+                    <label class="font-medium" for="last-name">Member Last Name</label>
+                    <input id="last-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="last-name" placeholder="Enter the Member's Last Name" required>
 
-                        <label class="font-medium" for="first-name">Member First Name</label>
-                        <input id="first-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="first-name" placeholder="Enter the Member's First Name" required>
-                        
-                        <label class="font-medium" for="phone">Member Phone Number</label>
-                        <input id="phone" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="phone" placeholder="Enter the Member's Phone Number" required>
+                    <label class="font-medium" for="first-name">Member First Name</label>
+                    <input id="first-name" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="first-name" placeholder="Enter the Member's First Name" required>
+                    
+                    <label class="font-medium" for="phone">Member Phone Number</label>
+                    <input id="phone" class="outline-none text-black py-1 font-medium rounded-sm px-4 placeholder:text-gray-500" type="text" name="phone" placeholder="Enter the Member's Phone Number" required>
 
-                    </div>
+                </div>
 
-                    <div class="flex flex-col gap-3">
-                        <label for="select-activity">Choose Activity</label> 
-                        <select id="select-activity" class="text-black py-1 px-4 font-medium outline-none text-black" name="select-activity">
-                        <?php 
-                                require_once '../classes/users.php';
-                                $user=new User("","","","","","");
-                                $result = $user->showActivitiesMembre();
-                                
+                <div class="flex flex-col gap-3">
+                    <label for="select-activity">Choose Activity</label> 
+                    <select id="select-activity" class="text-black py-1 px-4 font-medium outline-none text-black" name="select-activity">
+                    <?php 
+                            require_once '../classes/users.php';
+                            $user=new User("","","","","","");
+                            $result = $user->showActivitiesMembre();
+                            
 
 
-                                if ($result->rowCount() > 0) {
-                                    while ($rows = $result->fetch(PDO::FETCH_ASSOC)) {
-                                        $id=$rows['id_activite'];
+                            if ($result->rowCount() > 0) {
+                                while ($rows = $result->fetch(PDO::FETCH_ASSOC)) {
+                                    $id=$rows['id_activite'];
 
-                                    echo '<option class="text-black" value="'.$rows['id_activite'].'">'.$rows['nom_activite'].'</option>';
+                                echo '<option class="text-black" value="'.$rows['id_activite'].'">'.$rows['nom_activite'].'</option>';
 
-                                }
                             }
-                            ?> 
-                        </select>
-                       
-                    </div>
-                    <div>
-                        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
-                        <input type="date" id="date" name="date" required class=" text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                    </div>
+                        }
+                        ?> 
+                    </select>
+                    
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+                    <input type="date" id="date" name="date" required class=" text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
 
-                    <div class="flex justify-end gap-5 mt-3">
-                        <a href="../classes/functions/addReservation.php">
+                <div class="flex justify-end gap-5 mt-3">
+                    <a href="../classes/functions/addReservation.php">
 
-                        <button id="confirm-add" class="font-medium py-1 px-5 bg-orange-500 text-black transition-all duration-300 rounded-sm hover:scale-105" type="submit">Save</button>
-                        </a>  
-                        <button id="cancel-add" class="font-medium py-1 px-5 border border-white rounded-sm transition-all duration-300 hover:text-black hover:bg-gray-500 hover:border-none" type="button">Annuler</button>
-                    </div>
-                </form>
-            </div>
-
-        <!-- STATISTICS SECTION -->
-        <!-- <section id="membre-statistics" class=" flex items-center gap-10 flex-wrap px-14 py-10">
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-            <div class="flex flex-col gap-8 items-center justify-center p-5 bg-white shadow-sm shadow-gray-500 border-t-8 border-orange-500 rounded-md flex-1">
-                <h1 class="text-2xl font-semibold">STATISTICS 1</h1>
-                <h2 class="text-xl font-semibold">16</h2>
-            </div>
-        </section> -->
+                    <button id="confirm-add-booking" class="font-medium py-1 px-5 bg-orange-500 text-black transition-all duration-300 rounded-sm hover:scale-105" type="submit">Save</button>
+                    </a>  
+                    <button id="cancel-add-booking" class="font-medium py-1 px-5 border border-white rounded-sm transition-all duration-300 hover:text-black hover:bg-gray-500 hover:border-none" type="button">Annuler</button>
+                </div>
+            </form>
+        </div>
 
         <!-- PROFILE SECTION -->
-        <section class="  flex hidden justify-center mt-16" id="admin-profile">
+        <section class="  flex hidden justify-center mt-16" id="member-manage-profile">
             <div class="bg-white overflow-hidden shadow rounded-lg border h-max py-5">
                 <div class="px-4 py-2">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -246,8 +210,8 @@
             </div>
         </section>
 
-        <!-- ACTIVITY SECTION -->
-        <section>
+        <!-- BOOKING SECTION -->
+        <section id="member-manage-bookings">
         <div class="bg-white overflow-hidden shadow rounded-lg">
                         <div class="p-6">
                             <h3 class="text-lg font-medium text-gray-900 mb-4">Prochain Rendez-vous</h3>
@@ -322,5 +286,43 @@
         </section>
     </main>
 
+
+    <script>
+        // BOOKING FORM ========================================
+
+        const addBookingForm = document.getElementById('add-booking-form');
+        const openBookingPopup = document.getElementById('btn-add-booking');
+        const btnConfirmBooking = document.getElementById('confirm-add-booking');
+        const btnCancelBooking = document.getElementById('cancel-add-booking');
+
+
+        btnCancelBooking.addEventListener('click', function(){
+            addBookingForm.classList.add('hidden');
+        });
+
+        openBookingPopup.addEventListener('click', function(){
+            addBookingForm.classList.remove('hidden');
+        });
+
+
+        // ADMIN DASHBOARD ========================================
+
+        const ManageProfile = document.getElementById('member-manage-profile');
+        const ManageBooking = document.getElementById('member-manage-bookings');
+
+        const optionProfile = document.getElementById('member-profile-option');
+        const optionBooking = document.getElementById('member-bookings-option');
+
+
+        optionProfile.addEventListener('click', function(){
+            ManageProfile.classList.remove('hidden');
+            ManageBooking.classList.add('hidden');
+        });
+
+        optionBooking.addEventListener('click', function(){
+            ManageBooking.classList.remove('hidden');
+            ManageProfile.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
